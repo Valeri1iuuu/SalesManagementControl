@@ -1,0 +1,243 @@
+﻿<Page x:Class="SalesManagementControl.Pages.SalesPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SalesManagementControl.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="620" d:DesignWidth="1280"
+      Title="SalesPage" Background="#FFFFFF">
+
+    <Page.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="FontSize" Value="25"/>
+            <Setter Property="FontFamily" Value="Roboto"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Foreground" Value="#003F80"/>
+        </Style>
+
+        <Style TargetType="TextBlock" x:Key="Style1">
+            <Setter Property="FontSize" Value="25"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontFamily" Value="Roboto"/>
+            <Setter Property="Foreground" Value="#003F80"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+        </Style>
+
+        <Style TargetType="TextBlock" x:Key="Style2">
+            <Setter Property="FontSize" Value="22"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontFamily" Value="Roboto"/>
+            <Setter Property="Foreground" Value="#1150FB"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+        </Style>
+    </Page.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+
+        <ListView Grid.Row="1" Grid.Column="1"
+                  x:Name="PurchaseList"
+                  BorderBrush="Transparent"
+                  ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel/>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border Width="980" Height="250" Background="#E7E7E7"
+                Margin="0,5,0,5"
+                VerticalAlignment="Top"
+                CornerRadius="10">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="50"/>
+                                <RowDefinition Height="50"/>
+                                <RowDefinition Height="50"/>
+                                <RowDefinition Height="50"/>
+                                <RowDefinition Height="50"/>
+                            </Grid.RowDefinitions>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="10"/>
+                                <ColumnDefinition Width="150"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Border Grid.ColumnSpan="8" CornerRadius="10,10,0,0" Background="#C2CAD6"/>
+
+                            <StackPanel Orientation="Horizontal"
+                            Grid.Column="1" Grid.ColumnSpan="6">
+
+                                <TextBlock Text="{Binding Status}"
+                                           Padding="0,0,10,0"
+                               Style="{StaticResource Style1}"/>
+
+                                <TextBlock Text="{Binding Timestamp}"
+                               Foreground="#1150FB"
+                               Style="{StaticResource Style1}"/>
+                            </StackPanel>
+
+                            <StackPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3"
+                            Orientation="Horizontal">
+                                <TextBlock Text="Кол-во: "
+                               Style="{StaticResource Style1}"/>
+
+                                <TextBlock Text="{Binding Amount}"
+                               Margin="0,5,0,0"
+                               Style="{StaticResource Style2}"/>
+                            </StackPanel>
+
+                            <StackPanel Grid.Row="1" Grid.Column="5" Grid.ColumnSpan="3"
+                            Orientation="Horizontal">
+                                <TextBlock Text="Кошелёк: "
+                               Style="{StaticResource Style1}"/>
+
+                                <TextBlock Text="{Binding WalletCode}"
+                               Margin="0,5,0,0"
+                               Style="{StaticResource Style2}"/>
+                            </StackPanel>
+
+                            <StackPanel Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3"
+                            Orientation="Horizontal">
+                                <TextBlock Text="Тип: "
+                               Style="{StaticResource Style1}"/>
+
+                                <TextBlock Text="{Binding ProductType}"
+                               Margin="0,5,0,0"
+                               Style="{StaticResource Style2}"/>
+                            </StackPanel>
+
+                            <StackPanel Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="4"
+                            Orientation="Horizontal">
+                                <TextBlock Text="Название: "
+                               Style="{StaticResource Style1}"/>
+
+                                <TextBlock Text="{Binding ProductName}"
+                               Margin="0,5,0,0"
+                               Style="{StaticResource Style2}"/>
+                            </StackPanel>
+
+                            <StackPanel Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="4"
+                            Orientation="Horizontal">
+                                <TextBlock Text="Покупатель: "
+                               Style="{StaticResource Style1}"/>
+
+                                <TextBlock Text="{Binding ClientFullName}"
+                               Margin="0,5,0,0"
+                               Style="{StaticResource Style2}"/>
+
+                            </StackPanel>
+
+                            <StackPanel Grid.Row="3" Grid.Column="5" Grid.ColumnSpan="40"
+                            Orientation="Horizontal">
+                                <TextBlock Text="Цена (1 шт): "
+                               Style="{StaticResource Style1}"/>
+
+                                <TextBlock Text="{Binding FormattedPrice}"
+                               Margin="0,5,0,0"
+                               Style="{StaticResource Style2}"/>
+
+                            </StackPanel>
+
+                            <StackPanel Grid.Row="2" Grid.Column="5" Grid.ColumnSpan="2"
+                            Orientation="Horizontal">
+                                <TextBlock Text="Артикул: "
+                               Style="{StaticResource Style1}"/>
+
+                                <TextBlock Text="{Binding VendorCode}"
+                               Margin="0,5,0,0"
+                               Style="{StaticResource Style2}"/>
+                            </StackPanel>
+
+                            <StackPanel Grid.Row="4" Grid.Column="5" Grid.ColumnSpan="40"
+                            Orientation="Horizontal">
+                                <TextBlock Text="Цена (всё): "
+                               Style="{StaticResource Style1}"/>
+
+                                <TextBlock Text="{Binding FormattedTotalPrice}"
+                               Margin="0,5,0,0"
+                               Style="{StaticResource Style2}"/>
+
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+        </ListView>
+
+        <StackPanel Grid.Column="3" Grid.Row="1">
+            <Button Style="{DynamicResource ButtonStyleForPage}"  
+                    Width="200" Height="60"
+                    Content="Добавить"
+                    Name="BT_OnAddClient"
+                    Click="OnAddSales"/>
+
+            <Button Width="200" Height="60"
+                    Content="Изменить" Margin="0,20,0,0"
+                    Style="{DynamicResource ButtonStyleForPage}"
+                    Name="BT_OnModifyClient"
+                    IsEnabled="False"/>
+
+            <Button Width="200" Height="60"
+                    Content="Удалить" Margin="0,20,0,0"
+                    Style="{DynamicResource ButtonStyleForPage}" Click="OnDelete"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Vertical"
+                    Grid.Row="1" Grid.Column="3"
+                    VerticalAlignment="Center">
+            <TextBlock Text="Колличество"/>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="записей: "/>
+                <TextBlock Text="100" Name="EntryCountTextBlock"
+                           Foreground="#FB1455"/>
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel Orientation="Vertical"
+                    Grid.Row="1" Grid.Column="3"
+                    Margin="0,150,0,0"
+                    VerticalAlignment="Center">
+            <TextBlock Text="Логин:"/>
+            <TextBlock Text="Evgen407GhTv" Name="LoginTextBlock"
+                       Foreground="#FB1455"/>
+            <Border Height="3"
+                    Background="#003F80"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal"
+                    Grid.Row="1" Grid.Column="3"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Bottom">
+
+
+            <TextBlock Text="3" Margin="20,0"
+                       Foreground="#FB1455" FontSize="40"/>
+        </StackPanel>
+    </Grid>
+</Page>

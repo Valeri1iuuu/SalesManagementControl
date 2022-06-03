@@ -1,0 +1,154 @@
+﻿<Window x:Class="SalesManagementControl.Windows.Sales.SalesAddWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SalesManagementControl.Windows"
+        mc:Ignorable="d"
+                MouseLeftButtonDown="Window_MouseLeftButtonDown"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        WindowStartupLocation="CenterScreen"
+        Background="Transparent"
+        ResizeMode="NoResize"
+        Title="SalesAddWindow" Height="600" Width="550">
+    <Window.Resources>
+    </Window.Resources>
+    <Border Background="#FFFFFF"
+                CornerRadius="20">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="500"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="550"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Image Grid.Column="2"
+                       Width="15" Height="15"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Bottom"
+                       Source="/Resourses/image/BT_Close.png"
+                       MouseLeftButtonUp="OnExit"
+                       MouseLeftButtonDown="OnExitStopDrag"
+                       />
+
+
+            <Border Grid.Column="1" Grid.Row="1" Background="Transparent">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+
+                    <StackPanel Orientation="Horizontal"
+                                    Margin="0,0,0,10"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Bottom">
+
+                        <TextBlock Text="Оформление"
+                                       Foreground="#1150FB"
+                                       FontSize="22" FontFamily="Roboto"
+                                       FontWeight="Bold"/>
+
+                        <TextBlock Text="Продажи"
+                                       Margin="5,0,0,0"
+                                       Foreground="#FB1455"
+                                       FontSize="22" FontFamily="Roboto"
+                                       FontWeight="Bold"/>
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="1">
+                        <TextBlock Text="Тип товара" FontSize="15"
+                                       Foreground="#9BA2AC"
+                                       FontFamily="Roboto" FontWeight="Medium"/>
+                        <ComboBox Style="{DynamicResource ComboBoxStyle1}" 
+                                  Name="ProductTypeComboBox"
+                                  Height="40" SelectionChanged="ProductTypeComboBox_SelectionChanged"/>
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="2">
+                        <TextBlock Text="Название" FontSize="15"
+                                       Foreground="#9BA2AC"
+                                       FontFamily="Roboto" FontWeight="Medium"/>
+                        <ComboBox Style="{DynamicResource ComboBoxStyle1}" 
+                                  Name="ProductName"
+                                  Height="40" SelectionChanged="ProductName_SelectionChanged"/>
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="3">
+                        <TextBlock Text="Покупатель" FontSize="15"
+                                       Foreground="#9BA2AC"
+                                       FontFamily="Roboto" FontWeight="Medium"/>
+                        <ComboBox Style="{DynamicResource ComboBoxStyle1}" 
+                                  Name="ClientNameComboBox"
+                                  Height="40"/>
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="4">
+                        <TextBlock Text="Статус" FontSize="15"
+                                       Foreground="#9BA2AC"
+                                       FontFamily="Roboto" FontWeight="Medium"/>
+                        <ComboBox Style="{DynamicResource ComboBoxStyle1}" 
+                                  Name="StatusComboBox"
+                                  Height="40"/>
+                    </StackPanel>
+                    
+                    <StackPanel Grid.Row="5" HorizontalAlignment="Left">
+                        <TextBlock Text="Кол-во" FontSize="15"
+                                       Foreground="#9BA2AC"
+                                       FontFamily="Roboto" FontWeight="Medium"/>
+                        <TextBox Width="200" Name="AmountTextBox"
+                                       Style="{DynamicResource TextBoxStyleAuthorWindow}" TextChanged="AmountTextBox_TextChanged"/>
+                    </StackPanel>
+                    
+                    <StackPanel Grid.Row="5" HorizontalAlignment="Right">
+                        <TextBlock Text="Цена (1 шт)" FontSize="15"
+                                       Foreground="#9BA2AC"
+                                       FontFamily="Roboto" FontWeight="Medium"/>
+                        <TextBox Width="200"
+                                 IsEnabled="False"
+                                 Name="PriceTextBox"
+                                       Style="{DynamicResource TextBoxStyleAuthorWindow}"/>
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="6" HorizontalAlignment="Left">
+                        <TextBlock Text="Артикул" FontSize="15"
+                                       Foreground="#9BA2AC"
+                                       FontFamily="Roboto" FontWeight="Medium"/>
+                        <TextBox Width="200" Name="VendorCodeTextBox"
+                                 IsEnabled="False"      
+                                 Style="{DynamicResource TextBoxStyleAuthorWindow}"/>
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="6" HorizontalAlignment="Right">
+                        <TextBlock Text="Цена (все)" FontSize="15"
+                                       Foreground="#9BA2AC"
+                                       FontFamily="Roboto" FontWeight="Medium"/>
+                        <TextBox Width="200"
+                                 IsEnabled="False"
+                                 Name="TotalPriceTextBox"
+                                       Style="{DynamicResource TextBoxStyleAuthorWindow}"/>
+                    </StackPanel>
+
+
+                    <Button Style="{DynamicResource ButtonStyleAuthWindow}" 
+                                VerticalAlignment="Bottom"
+                                Grid.Row="8" Content="Добавить" Click="Button_Click"/>
+                </Grid>
+            </Border>
+        </Grid>
+    </Border>
+</Window>

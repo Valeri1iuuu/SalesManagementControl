@@ -1,0 +1,141 @@
+﻿<Window x:Class="SalesManagementControl.Windows.Client.ClientModifyWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SalesManagementControl.Windows"
+        mc:Ignorable="d" 
+        MouseLeftButtonDown="Window_MouseLeftButtonDown"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        WindowStartupLocation="CenterScreen"
+        Background="Transparent"
+        ResizeMode="NoResize"
+        Title="ClientModifyWindow" Height="600" Width="350">
+    <Grid>
+        <Border Background="#FFFFFF"
+                CornerRadius="20">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="300"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="550"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Image Grid.Column="2" 
+                       Width="15" Height="15"
+                       VerticalAlignment="Bottom" HorizontalAlignment="Left"
+                       MouseLeftButtonUp="OnExit"
+                       MouseLeftButtonDown="OnExitStopDrag"
+                       Source="/Resourses/image/BT_Close.png"/>
+
+
+                <Border Grid.Column="1" Grid.Row="1" Background="Transparent">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+
+                        <StackPanel Orientation="Horizontal"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center">
+
+                            <TextBlock Text="Изменение"
+                                       Foreground="#1150FB"
+                                       FontSize="22" FontFamily="Roboto"
+                                       FontWeight="Bold"/>
+
+                            <TextBlock Text="Клиента"
+                                       Margin="5,0,0,0"
+                                       Foreground="#FB1455"
+                                       FontSize="22" FontFamily="Roboto"
+                                       FontWeight="Bold"/>
+                        </StackPanel>
+
+                        <StackPanel Grid.Row="1">
+                            <TextBlock Text="Имя" FontSize="15"
+                                       Foreground="#9BA2AC"
+                                       FontFamily="Roboto" FontWeight="Medium"/>
+                            <TextBox Name="FirstNameTextBox"
+                                Style="{DynamicResource TextBoxStyleAuthorWindow}" />
+                        </StackPanel>
+
+                        <StackPanel Grid.Row="2">
+                            <TextBlock Text="Фамилия" FontSize="15"
+                                       Foreground="#9BA2AC"
+                                       FontFamily="Roboto" FontWeight="Medium"/>
+                            <TextBox Name="LastNameTextBox"
+                                Style="{DynamicResource TextBoxStyleAuthorWindow}"/>
+                        </StackPanel>
+
+                        <StackPanel Grid.Row="3">
+                            <TextBlock Text="Отчество" FontSize="15"
+                                       Foreground="#9BA2AC"
+                                       FontFamily="Roboto" FontWeight="Medium"/>
+                            <TextBox Name="PatronymicTextBox"
+                                Style="{DynamicResource TextBoxStyleAuthorWindow}"/>
+                        </StackPanel>
+
+                        <StackPanel Grid.Row="4">
+                            <TextBlock Text="Телефон" FontSize="15"
+                                       Foreground="#9BA2AC"
+                                       FontFamily="Roboto" FontWeight="Medium"/>
+                            <TextBox Name="PhoneNumberTextBox"
+                                Style="{DynamicResource TextBoxStyleAuthorWindow}"/>
+                        </StackPanel>
+
+                        <StackPanel Grid.Row="5">
+                            <TextBlock Text="Почта" FontSize="15"
+                                       Foreground="#9BA2AC"
+                                       FontFamily="Roboto" FontWeight="Medium"/>
+                            <TextBox Name="EmailTextBox" 
+                                Style="{DynamicResource TextBoxStyleAuthorWindow}"/>
+                        </StackPanel>
+
+                        <StackPanel Grid.Row="6">
+                            <TextBlock Text="Пол" FontSize="15"
+                                       Foreground="#9BA2AC"
+                                       FontFamily="Roboto" FontWeight="Medium"/>
+                            <ComboBox Width="120" Height="40" HorizontalAlignment="Left"
+                                      VerticalContentAlignment="Center"
+                                      Style="{DynamicResource ComboBoxStyle1}" 
+                                      Name="GenderComboBox">
+                            </ComboBox>
+                        </StackPanel>
+
+                        <StackPanel Grid.Row="6"
+                                    HorizontalAlignment="Right">
+                            <TextBlock Text="День рождения" FontSize="15"
+                                       Foreground="#9BA2AC"
+                                       FontFamily="Roboto" FontWeight="Medium"/>
+
+                            <DatePicker Width="150" Height="40"
+                                        Name="BirthDatePicker"
+                                        
+                                        />
+                        </StackPanel>
+
+                        <Button Style="{DynamicResource ButtonStyleAuthWindow}"
+                                VerticalAlignment="Bottom"
+                                BorderThickness="0"
+                                Grid.Row="7" Content="Изменить" Click="Button_Click"/>
+                    </Grid>
+                </Border>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>
